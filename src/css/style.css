@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #222;
+}
+
+#cadastro{
+    margin: auto;
+    color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 1000px;
+    height: 250px;
+}
+
+.lin {
+    position: relative;
+    top: 150px;
+    text-align: center;
+}
+
+#cadastro button {
+    background-color: rgb(51, 120, 8);
+    color: aliceblue;
+    font-weight: 500;
+    padding: 5px 12px 5px 12px;
+    border: none;
+    border-radius: 5px;
+}
+
+#tabela{
+    justify-items: center;
+    margin: auto;
+    width: 200vh;
+    height: 55vh; 
+}
+
+#tabela button {
+    background-color: rgb(120, 8, 8);
+    color: aliceblue;
+    font-weight: 500;
+    padding: 5px 12px 5px 12px;
+    border: none;
+    border-radius: 5px;
+}
+
+tabela, tr, td, th{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    text-align: center;
+    width: 300px;
+    border: 2px solid #222;
+}
+
+table{
+    border-collapse: collapse;
+    border: 0;
+    background-color: aliceblue;
+}
+
+th{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
