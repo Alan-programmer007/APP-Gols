@@ -25,6 +25,8 @@ button.addEventListener('click', async() => {
 
     const resultados = await api.listarItens();
     exibir(resultados);
+    const ret = await api.listarItens();
+    afim(ret);
 })
 
 async function exibir(resultados) {
@@ -55,6 +57,12 @@ async function exibir(resultados) {
 
         tabela.appendChild(tr);
     });
+}
+
+async function afim(ret) {
+    ret.forEach(informacoes => {
+        console.log(informacoes.id)
+    })
 }
 
 window.onload = async () => {
