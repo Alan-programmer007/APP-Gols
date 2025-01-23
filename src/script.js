@@ -24,6 +24,10 @@ button.addEventListener('click', async() => {
     const resultados = await api.listarItens();
     exibir(resultados);
     adicionarEventosDeletar(resultados);
+
+    data.value = "";
+    gols.value = "";
+    assitencia.value = "";
 })
 
 async function exibir(resultados) {
@@ -75,6 +79,7 @@ function adicionarEventosDeletar(resultados) {
         });
     });
 }
+
 window.onload = async () => {
     const resultados = await api.listarItens();
     exibir(resultados);
