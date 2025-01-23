@@ -3,10 +3,8 @@ import ApiConnection from "./api.js"
 const api = new ApiConnection();
 
 const button = document.querySelector("#entrada");
-const apagar = document.querySelectorAll(".delete");
 
 button.addEventListener('click', async() => {
-
     const inputData = document.querySelector("#input-data");
     const inputGols = document.querySelector("#input-gols");
     const inputAssitencia = document.querySelector("#input-assitencia");
@@ -25,8 +23,7 @@ button.addEventListener('click', async() => {
 
     const resultados = await api.listarItens();
     exibir(resultados);
-    const ret = await api.listarItens();
-    afim(ret);
+    adicionarEventosDeletar(resultados);
 })
 
 async function exibir(resultados) {
@@ -59,13 +56,27 @@ async function exibir(resultados) {
     });
 }
 
-async function afim(ret) {
-    ret.forEach(informacoes => {
-        console.log(informacoes.id)
-    })
-}
+function adicionarEventosDeletar(resultados) {
+    const apagar = document.querySelectorAll(".delete");
+    apagar.forEach((botao, indice) => {
+        botao.addEventListener("click", async () => {
+            const botaoSelecionado = document.querySelector(".selecionado");
+            if (botaoSelecionado) {
+                botaoSelecionado.classList.remove("selecionado");
+            }
+            botao.classList.add("selecionado");
 
+            const id = resultados[indice].id;
+            await api.deletarInfo(id);
+
+            const novoResultados = await api.listarItens();
+            exibir(novoResultados);
+            adicionarEventosDeletar(novoResultados);
+        });
+    });
+}
 window.onload = async () => {
     const resultados = await api.listarItens();
     exibir(resultados);
+    adicionarEventosDeletar(resultados);
 };
