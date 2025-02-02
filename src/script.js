@@ -23,65 +23,55 @@ button.addEventListener('click', async() => {
 
     const resultados = await api.listarItens();
     exibir(resultados);
-    adicionarEventosDeletar(resultados);
 
-    data.value = "";
-    gols.value = "";
-    assitencia.value = "";
+    inputData.value = "";
+    inputGols.value = "";
+    inputAssitencia.value = "";
 })
 
-async function exibir(resultados) {
+async function exibir() {
     const tabela = document.querySelector("#tabela-score tbody");
     tabela.innerHTML = "";
 
-    resultados.forEach(informacoes => {
+    const dados = await api.listarItens();
+
+    dados.forEach(informacoes => {
         const tr = document.createElement("tr");
 
         const tdData = document.createElement("td");
         tdData.textContent = informacoes.data;
-        tr.appendChild(tdData);
 
         const tdGols = document.createElement("td");
         tdGols.textContent = informacoes.gols;
-        tr.appendChild(tdGols);
 
         const tdAssistencia = document.createElement("td");
         tdAssistencia.textContent = informacoes.assitencia;
-        tr.appendChild(tdAssistencia);
 
         const tdExcluir = document.createElement("td");
-        const buttonDelete = document.createElement("button");
-        buttonDelete.textContent = "Deletar";
-        buttonDelete.classList.add("delete");
-        tdExcluir.appendChild(buttonDelete);
+        tdExcluir.appendChild(criarButton(informacoes.id))
+
+        tr.appendChild(tdData);
+        tr.appendChild(tdGols);
+        tr.appendChild(tdAssistencia);
         tr.appendChild(tdExcluir);
 
-        tabela.appendChild(tr);
+        const tbody = document.querySelector("tbody")
+        tbody.appendChild(tr)
     });
 }
 
-function adicionarEventosDeletar(resultados) {
-    const apagar = document.querySelectorAll(".delete");
-    apagar.forEach((botao, indice) => {
-        botao.addEventListener("click", async () => {
-            const botaoSelecionado = document.querySelector(".selecionado");
-            if (botaoSelecionado) {
-                botaoSelecionado.classList.remove("selecionado");
-            }
-            botao.classList.add("selecionado");
+function criarButton(id){
+    const bnt = document.createElement("button")
 
-            const id = resultados[indice].id;
-            await api.deletarInfo(id);
+    bnt.innerText = "Remover";
 
-            const novoResultados = await api.listarItens();
-            exibir(novoResultados);
-            adicionarEventosDeletar(novoResultados);
-        });
-    });
+    bnt.addEventListener("click", async() => {
+
+        await api.deletarInfo(id)
+
+        exibir()
+    })
+    return bnt;
 }
 
-window.onload = async () => {
-    const resultados = await api.listarItens();
-    exibir(resultados);
-    adicionarEventosDeletar(resultados);
-};
+exibir();
