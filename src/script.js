@@ -13,20 +13,24 @@ button.addEventListener('click', async() => {
     const gols = inputGols.value;
     const assitencia = inputAssitencia.value;
 
-    const container = {
-        data: data,
-        gols: gols,
-        assitencia: assitencia
-    };
-    console.log(container)
-    await api.cadastraResultados(container)
-
-    const resultados = await api.listarItens();
-    exibir(resultados);
-
-    inputData.value = "";
-    inputGols.value = "";
-    inputAssitencia.value = "";
+    if (data != "" && gols != "" && assitencia != "") {
+        const container = {
+            data: data,
+            gols: gols,
+            assitencia: assitencia
+        };
+        console.log(container)
+        await api.cadastraResultados(container)
+    
+        const resultados = await api.listarItens();
+        exibir(resultados);
+    
+        inputData.value = "";
+        inputGols.value = "";
+        inputAssitencia.value = "";
+    }else{
+        alert("Preencha todos os campos!")
+    }
 })
 
 async function exibir() {
@@ -114,20 +118,27 @@ function pegarValores(id) {
         const golsAtualizados = inputGolsNovo.value;
         const assitenciaAtualizados = inputAssitenciaNovo.value;
 
-        const novaLinha = {
-            data: dataAtualizado,
-            gols: golsAtualizados,
-            assitencia: assitenciaAtualizados
-        };
+        if (dataAtualizado != "" && golsAtualizados != "" && assitenciaAtualizados != "") {
+            const novaLinha = {
+                data: dataAtualizado,
+                gols: golsAtualizados,
+                assitencia: assitenciaAtualizados
+            };
+    
+            console.log(id, novaLinha)
+            await api.atualizarLinha(id, novaLinha);
+    
+            inputDataNovo.value = "";
+            inputGolsNovo.value = "";
+            inputAssitenciaNovo.value = "";
+    
+            alert("Atualizações feitas!")
+    
+            exibir()
+        }else{
+            alert("Preencha todos os campos!")
+        }
 
-        console.log(id, novaLinha)
-        await api.atualizarLinha(id, novaLinha);
-
-        inputDataNovo.value = "";
-        inputGolsNovo.value = "";
-        inputAssitenciaNovo.value = "";
-
-        exibir()
 
     }, { once: true })
 
