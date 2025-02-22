@@ -7,7 +7,9 @@
     <title>Jogador</title>
 </head>
 <body>
+    
     <section class="secao">
+
         <div id="cadastro">
             <div class="lin">
             <label for="input-data">Data:</label>
@@ -28,6 +30,7 @@
                         <th>Gols</th>
                         <th>Assisência</th>
                         <th>Excluir</th>
+                        <th>Atualizar</th>
                     </tr>
             </thead>
             <tbody>
@@ -35,12 +38,27 @@
                     <th>Data</th>
                     <th>Gols</th>
                     <th>Assisência</th>
-                    <th><button class="delete selecionado">Excluir</button></th>
+                    <th><button>Excluir</button></th>
+                    <th><button>Atualizar</button></th>
                 </tr>
             </tbody>    
             </table>
             </div>
     </section>
+
+    <div class="janela-atualizar" id="janela-atualizar">
+        <div class="modal">
+            <label for="input-data">Nova data:</label>
+            <input type="text" id="input-data-atualizado">
+            <label for="input-gols">Gols atualizado:</label>
+            <input type="text" id="input-gols-atualizado">
+            <label for="input-assitencia">Assistência atualizada:</label>
+            <input type="text" id="input-assitencia-atualizado">
+            <button class="sair" id="sair">X</button>
+            <button class="concluir" id="concluir">concluir</button>
+        </div>
+    </div>
+    
     <script type="module" src="./script.js"></script>
 </body>
 </html>

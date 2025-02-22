@@ -11,10 +11,10 @@ class ApiConection{
     return dados
     }
     
-    async cadastraResultados(informacoes) {
+    async cadastraResultados(container) {
     const response =  await fetch(this.url, {
         method: "POST",
-        body: JSON.stringify(informacoes),
+        body: JSON.stringify(container),
         headers: {"Content-Type": "application/json"}
     });
     
@@ -26,6 +26,14 @@ class ApiConection{
     });
         
     }
+
+    async atualizarLinha(id, novaLinha){
+    const response =  await fetch(this.url + "/" + id, {
+        method: "PUT",
+        body: JSON.stringify(novaLinha),
+        headers: {"Content-Type": "application/json"}
+    });
+    } 
     
 }
 

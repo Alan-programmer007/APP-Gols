@@ -13,13 +13,13 @@ button.addEventListener('click', async() => {
     const gols = inputGols.value;
     const assitencia = inputAssitencia.value;
 
-    const informacoes = {
-        data,
-        gols,
-        assitencia
+    const container = {
+        data: data,
+        gols: gols,
+        assitencia: assitencia
     };
-    
-    await api.cadastraResultados(informacoes)
+    console.log(container)
+    await api.cadastraResultados(container)
 
     const resultados = await api.listarItens();
     exibir(resultados);
@@ -35,25 +35,29 @@ async function exibir() {
 
     const dados = await api.listarItens();
 
-    dados.forEach(informacoes => {
+    dados.forEach(container => {
         const tr = document.createElement("tr");
 
         const tdData = document.createElement("td");
-        tdData.textContent = informacoes.data;
+        tdData.textContent = container.data;
 
         const tdGols = document.createElement("td");
-        tdGols.textContent = informacoes.gols;
+        tdGols.textContent = container.gols;
 
         const tdAssistencia = document.createElement("td");
-        tdAssistencia.textContent = informacoes.assitencia;
+        tdAssistencia.textContent = container.assitencia;
 
         const tdExcluir = document.createElement("td");
-        tdExcluir.appendChild(criarButton(informacoes.id))
+        tdExcluir.appendChild(criarButton(container.id))
+
+        const bntAtualizar = document.createElement("td");
+        bntAtualizar.appendChild(criarButtonAtualizar(container.id))
 
         tr.appendChild(tdData);
         tr.appendChild(tdGols);
         tr.appendChild(tdAssistencia);
         tr.appendChild(tdExcluir);
+        tr.appendChild(bntAtualizar);
 
         const tbody = document.querySelector("tbody")
         tbody.appendChild(tr)
@@ -72,6 +76,62 @@ function criarButton(id){
         exibir()
     })
     return bnt;
+}
+
+function criarButtonAtualizar(id){
+    const bntAtualizar = document.createElement("button")
+
+    bntAtualizar.innerText = "Atualizar";
+
+    bntAtualizar.addEventListener("click", async() => {
+
+    const modal = document.getElementById("janela-atualizar");
+
+    modal.classList.add("abrir")
+
+    modal.addEventListener("click", (e) => {
+        if(e.target.id == 'sair' || e.target.id == 'janela-atualizar'){
+            modal.classList.remove("abrir")
+        }
+    })
+
+        pegarValores(id)
+
+    })
+    return bntAtualizar;
+}
+
+function pegarValores(id) {
+    const concluir = document.querySelector(".concluir")
+
+    concluir.addEventListener("click", async() => {
+
+        const inputDataNovo = document.querySelector("#input-data-atualizado");
+        const inputGolsNovo = document.querySelector("#input-gols-atualizado");
+        const inputAssitenciaNovo = document.querySelector("#input-assitencia-atualizado");
+
+        const dataAtualizado = inputDataNovo.value;
+        const golsAtualizados = inputGolsNovo.value;
+        const assitenciaAtualizados = inputAssitenciaNovo.value;
+
+        const novaLinha = {
+            data: dataAtualizado,
+            gols: golsAtualizados,
+            assitencia: assitenciaAtualizados
+        };
+
+        console.log(id, novaLinha)
+        await api.atualizarLinha(id, novaLinha);
+
+        inputDataNovo.value = "";
+        inputGolsNovo.value = "";
+        inputAssitenciaNovo.value = "";
+
+        exibir()
+
+    }, { once: true })
+
+    exibir()
 }
 
 exibir();
