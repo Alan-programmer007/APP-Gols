@@ -132,9 +132,9 @@ function pegarValores(id) {
             inputGolsNovo.value = "";
             inputAssitenciaNovo.value = "";
     
-            alert("Atualizações feitas!")
-    
             exibir()
+
+            alert("Atualizações feitas!")
         }else{
             alert("Preencha todos os campos!")
         }
