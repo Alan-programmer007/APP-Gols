@@ -6,8 +6,6 @@ class ApiConection{
     const response =  await fetch(this.url)
     
     const dados = await response.json()
-    console.log(dados)
-    
     return dados
     }
     
@@ -35,8 +33,12 @@ class ApiConection{
     });
     } 
     
+
+    async totalNumeros(total){
+        const response =  await fetch(this.url + "/" + total)
+        const dados = await response.json()
+        return dados
+    }
 }
 
-
 export default ApiConection;
-//export default ApiConection()

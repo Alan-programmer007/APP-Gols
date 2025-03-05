@@ -1,6 +1,8 @@
-import ApiConnection from "./api.js"
+import ApiConnection from "./api.js";
+
 
 const api = new ApiConnection();
+
 
 const button = document.querySelector("#entrada");
 
@@ -34,6 +36,7 @@ button.addEventListener('click', async() => {
 })
 
 async function exibir() {
+    
     const tabela = document.querySelector("#tabela-score tbody");
     tabela.innerHTML = "";
 
@@ -66,6 +69,33 @@ async function exibir() {
         const tbody = document.querySelector("tbody")
         tbody.appendChild(tr)
     });
+
+    const titleGol = document.querySelector("#Gol #valor-Gol");
+    titleGol.innerHTML = "";
+    
+    const titleAssistencia = document.querySelector("#Assis #valor-Assis");
+    titleAssistencia.innerHTML = "";
+    
+    const titleJogo = document.querySelector("#jogos #valor-jogo");
+    titleJogo.innerHTML = "";
+    
+    var game = "gols";
+    console.log(game);
+    const dadoGol = await api.totalNumeros(game);
+    titleGol.innerHTML = dadoGol.count; // Certifique-se de acessar a propriedade correta
+    
+    game = "assistencia";
+    console.log(game);
+    const dadoAssis = await api.totalNumeros(game);
+    titleAssistencia.innerHTML = dadoAssis.count; // Certifique-se de acessar a propriedade correta
+    
+    game = "jogos";
+    console.log(game);
+    const dadoJogo = await api.totalNumeros(game);
+    titleJogo.innerHTML = dadoJogo.count
+
+
+
 }
 
 function criarButton(id){

@@ -10,10 +10,10 @@
 }
 
 :root {
-    --bg-color: #080808;
+    --bg-color: #FAFAEE;
     --second-bg-color: #131313;
-    --text-color: aliceblue;
-    --main-color: #04BF68;
+    --text-color: #FAFAEE;
+    --main-color: #0BD135;
 }
 
 .janela-atualizar {
@@ -61,44 +61,110 @@
 
 section {
     min-height: 100vh;
-    padding: 10rem 12% 10rem;
+    padding: 7rem 5% 10rem;
 }
 
 .inicio{
-    background-color: var(--second-bg-color);
+    background-color: var(--bg-color);
 }
 
 #cabecalho {
-    color: aliceblue;
+    color: var(--text-color);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 2rem 12% 2rem;
-    background: var(--bg-color);
+    height: 80px;
+    background: var(--main-color);
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: center;
     text-align: center;
     z-index: 5;
+    border: solid 2px burlywood;
 }
 
-h1 {
-    font-family: "Poppins", serif;
-    font-weight: 500;
+#cabecalho img {
+    width: 48px;
+    height: 24px;
+    top: 10px;
+    position: relative;
+    left: 75px;
+}
+
+#cabecalho h1 {
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 600;
     color: var(--text-color);
+    position: relative;
+    left: -25px;
+    width: 155px;
+    height: 30px;
+    top: 30px;
 }
 
-.efeito {
-    color: var(--main-color);
-    font-family: "Silkscreen", serif;
+.pontuacao {
+    width: 100%;
+    height: 50px;
+    color: #1e1e1e;
+    margin-top: 10px;
+    border: solid 2px burlywood;
+}
+
+.pontuacao h1 {
+    font-family: "Bungee", sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 100%;
+    position: relative;
+    width: 170px;
+    left: 590px;
+}
+
+.inicio .caixa{
+    margin-top: 25px;
+    display: flex;
+    margin-top: 50px;
+    border: solid 2px burlywood;
+}
+
+.inicio .caixa div{
+    height: 300px;
+    width: 400px;
+    border-radius: 10px;
+    margin: auto;
+    background-color: var(--main-color);
+    color: var(--text-color);
+    text-align: center;
+    box-shadow: 10px 10px 50px 3px rgba(0,0,0,0.4);
+}
+
+.caixa p{
+    text-align: center;
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 30px;
+    color: var(--text-color);
+    font-weight: 600;
+    margin: 10px auto auto auto; 
+}
+
+
+.inicio .caixa div h2{
+    font-family: "Bungee", sans-serif;
     font-weight: 400;
-    animation: 1s ease-in-out;
+    font-size: 70px;
+    position: relative;
+    top: 0px;
+    text-align: center;
+    margin-top: 20px;
 }
 
-.efeito:hover {
-    text-shadow: 0 0 50px var(--main-color);
+.inicio .caixa div img{
+    margin-top: 10px;
 }
+
+
+
 
 #cadastro{
     margin: auto;
