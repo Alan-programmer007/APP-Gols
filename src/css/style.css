@@ -16,6 +16,7 @@
     --main-color: #0BD135;
 }
 
+/* Janela de atualização */
 .janela-atualizar {
     width: 100%;
     height: 135%;
@@ -58,10 +59,11 @@
 .janela-atualizar.abrir{
     display: flex;
 }
+/* Janela de atualização */
 
 section {
-    min-height: 100vh;
-    padding: 7rem 5% 10rem;
+    min-height: 80vh;
+    padding: 7rem 5% 5rem;
 }
 
 .inicio{
@@ -137,6 +139,12 @@ section {
     color: var(--text-color);
     text-align: center;
     box-shadow: 10px 10px 50px 3px rgba(0,0,0,0.4);
+    transition: 0.5s ease-in-out;
+    border: solid 2px burlywood;
+}
+
+.inicio .caixa div:hover{
+    transform: scale(1.1);
 }
 
 .caixa p{
@@ -147,7 +155,6 @@ section {
     font-weight: 600;
     margin: 10px auto auto auto; 
 }
-
 
 .inicio .caixa div h2{
     font-family: "Bungee", sans-serif;
@@ -163,31 +170,88 @@ section {
     margin-top: 10px;
 }
 
+.secao.two {
+    padding: 0rem 5% 10rem;
+}
 
+.pontuacao.line {
+    width: 100%;
+    height: 50px;
+    color: #1e1e1e;
+    border: solid 2px rgb(255, 146, 3);
+}
+.pontuacao.line h1 {
+    width: 300px;
+    left: 530px;
+}
 
-
+/* Cadstro */
 #cadastro{
     margin: auto;
-    color: var(--text-color);
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: var(--second-bg-color);
     font-family: Arial, Helvetica, sans-serif;
     width: 1000px;
-    height: 250px;
+    height: 150px;
 }
 
 .lin {
-    position: relative;
-    top: 150px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    gap: 10px;
     text-align: center;
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: -1px -1px 25px 0px rgba(0,0,0,0.7);
+}
+
+#cadastro .conjunto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 150px;
+    width: 200px;
+    position: relative;
+}
+
+#cadastro .conjunto img {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+#cadastro .conjunto label {
+    top: 100px;
+    text-align: center;
+}
+
+#cadastro .conjunto input {
+    border: 2px solid rgba(0,0,0,0.5);
+    text-align: center;
+    margin-top: 10px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #E8E8E8;
 }
 
 #cadastro button {
     background-color: var(--main-color);
     color: var(--text-color);
-    font-weight: 500;
-    padding: 5px 12px 5px 12px;
+    font-weight: 700;
+    font-size: 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
+    width: 85%;
+    height: 85%;
 }
+/* Cadstro */
+
+
+
 
 #tabela{
     margin-right: 0;
@@ -209,9 +273,12 @@ section {
 tabela, tr, td, th{
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px;
-    text-align: center;
-    width: 300px;
+    width: 240px;
     border: 2px solid #222;
+}
+
+tabela, tr, td, .pacth{
+    width: 100px;
 }
 
 table{

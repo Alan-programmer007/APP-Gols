@@ -42,29 +42,44 @@
         
     </section>
 
-    <section class="secao">
+    <section class="secao two">
+
+        <div class="pontuacao line">
+            <h1>Time Line</h1>
+        </div>
 
         <div id="cadastro">
             <div class="lin">
-            <label for="input-data">Data:</label>
-            <input type="text" id="input-data">
-            <label for="input-gols">Gols:</label>
-            <input type="text" id="input-gols">
-            <label for="input-assitencia">Assistência:</label>
-            <input type="text" id="input-assitencia">
-            <button id="entrada">Cadastra</button>
-        </div>
+                <div class="conjunto">
+                    <img src="./image/calendario-preta.png" alt="icon caléndario">
+                    <label for="input-data">Data</label>
+                    <input type="text" id="input-data" placeholder="00/00/0000">
+                </div>
+                <div class="conjunto">
+                    <img src="./image/bola-preta.png" alt="icon bola">
+                    <label for="input-gols">Gols</label>
+                    <input type="text" id="input-gols" placeholder="0">
+                </div>
+                <div class="conjunto">
+                    <img src="./image/assistencia-preta.png" alt="icon mãos">
+                    <label for="input-assitencia">Assistência</label>
+                    <input type="text" id="input-assitencia" placeholder="0">
+                </div>
+                <div class="conjunto">
+                    <button id="entrada">Salvar</button>
+                </div>
+            </div>
         </div>
 
         <div id="tabela">
             <table id="tabela-score">    
             <thead>
                     <tr>
-                        <th>Data</th>
-                        <th>Gols</th>
-                        <th>Assisência</th>
-                        <th>Excluir</th>
-                        <th>Atualizar</th>
+                        <th>Data <img src="./image/calendario-preta.png" alt="icon caléndario"></th>
+                        <th>Gols <img src="./image/bola-preta.png" alt="icon bola"></th>
+                        <th>Assisência <img src="./image/assistencia-preta.png" alt="icon mãos"></th>
+                        <th class="pacth">Excluir</th>
+                        <th class="pacth">Atualizar</th>
                     </tr>
             </thead>
             <tbody>
