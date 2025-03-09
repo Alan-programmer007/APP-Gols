@@ -1,8 +1,6 @@
 import ApiConnection from "./api.js";
 
-
 const api = new ApiConnection();
-
 
 const button = document.querySelector("#entrada");
 
@@ -21,7 +19,6 @@ button.addEventListener('click', async() => {
             gols: gols,
             assitencia: assitencia
         };
-        console.log(container)
         await api.cadastraResultados(container)
     
         const resultados = await api.listarItens();
@@ -80,21 +77,16 @@ async function exibir() {
     titleJogo.innerHTML = "";
     
     var game = "gols";
-    console.log(game);
     const dadoGol = await api.totalNumeros(game);
     titleGol.innerHTML = dadoGol.count; // Certifique-se de acessar a propriedade correta
     
     game = "assistencia";
-    console.log(game);
     const dadoAssis = await api.totalNumeros(game);
     titleAssistencia.innerHTML = dadoAssis.count; // Certifique-se de acessar a propriedade correta
     
     game = "jogos";
-    console.log(game);
     const dadoJogo = await api.totalNumeros(game);
     titleJogo.innerHTML = dadoJogo.count
-
-
 
 }
 
@@ -116,6 +108,8 @@ function criarButtonAtualizar(id){
     const bntAtualizar = document.createElement("button")
 
     bntAtualizar.innerText = "Atualizar";
+
+    bntAtualizar.classList.add("atual")
 
     bntAtualizar.addEventListener("click", async() => {
 

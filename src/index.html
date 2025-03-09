@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./image/icon-ball.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Jogador</title>
+    <title>Football Score</title>
 </head>
 <body>
     
@@ -75,11 +76,11 @@
             <table id="tabela-score">    
             <thead>
                     <tr>
-                        <th>Data <img src="./image/calendario-preta.png" alt="icon caléndario"></th>
-                        <th>Gols <img src="./image/bola-preta.png" alt="icon bola"></th>
-                        <th>Assisência <img src="./image/assistencia-preta.png" alt="icon mãos"></th>
-                        <th class="pacth">Excluir</th>
-                        <th class="pacth">Atualizar</th>
+                        <th>Data <img class="tabela-img" src="./image/calendario-preta.png" alt="icon caléndario"></th>
+                        <th>Gols <img class="tabela-img" src="./image/bola-preta.png" alt="icon bola"></th>
+                        <th>Assisência <img class="tabela-img" src="./image/assistencia-preta.png" alt="icon mãos"></th>
+                        <th class="pacth"></th>
+                        <th class="pacth"></th>
                     </tr>
             </thead>
             <tbody>
@@ -106,8 +107,13 @@
                     <button class="concluir" id="concluir">concluir</button>
                 </div>
             </div>
-
     </section>
+
+    <footer class="footer">
+        <p class="copyright">
+            &copy Alan Da Silva &copy Kayk Oliveira
+        </p>
+    </footer>
     
     <script type="module" src="./script.js"></script>
 </body>
